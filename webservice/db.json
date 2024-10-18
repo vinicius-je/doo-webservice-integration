@@ -1,0 +1,43 @@
+{
+    "alunos": [
+        {
+            "id": 1,
+            "nome": "Maria Silva",
+            "endereco": "Rua das Flores, 123"
+        },
+        {
+            "id": 2,
+            "nome": "João Souza",
+            "endereco": "Avenida Central, 456"
+        }
+    ],
+    "disciplinas": [
+        {
+            "id": 1,
+            "nome": "Matemática",
+            "descricao": "Estudo de números e equações."
+        },
+        {
+            "id": 2,
+            "nome": "História",
+            "descricao": "Estudo dos acontecimentos passados."
+        }
+    ],
+    "matriculas": [
+        {
+            "id": 1,
+            "alunoId": 1,
+            "disciplinaId": 1
+        },
+        {
+            "id": 2,
+            "alunoId": 1,
+            "disciplinaId": 2
+        },
+        {
+            "id": 3,
+            "alunoId": 2,
+            "disciplinaId": 1
+        }
+    ]
+}
