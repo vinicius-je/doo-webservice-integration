@@ -1,5 +1,10 @@
-﻿using WebServiceIntegration.Core.Application.Interfaces;
+﻿using WebServiceIntegration.Application.DTOs;
+using WebServiceIntegration.Application.Factory.Factories;
+using WebServiceIntegration.Application.Service;
+using WebServiceIntegration.Application.WebServiceApplication.Services;
+using WebServiceIntegration.Core.Application.Interfaces;
 using WebServiceIntegration.Core.Application.Services;
+using WebServiceIntegration.Infrastructure;
 
 namespace WebServiceIntegration;
 
@@ -9,15 +14,12 @@ class Program
     {
         // See https://aka.ms/new-console-template for more information
         Console.WriteLine("Hello, World!");
-        await GetData();
-    }
 
-    static async Task GetData()
-    {
-        IEscolaWebServiceConsume webServiceConsume = new EscolaWebServiceConsume(new HttpClient());
+        var alunoWebService = new AlunoWebService(new WebServiceConsume<AlunoDTO>());
+        var disciplinaWebService = new DisciplinaWebService(new WebServiceConsume<DisciplinaDTO>());
 
-        var alunos = await webServiceConsume.GetAlunos();
-        var disciplinas = await webServiceConsume.GetDisciplinas();
-        var matriculas = await webServiceConsume.GetMatriculas();
+        var escolaWebService = new EscolaWebService(alunoWebService, disciplinaWebService);
+        var service = new Service<AlunoDTO, DisciplinaDTO, MatriculaDTO>(escolaWebService);
+        await service.Process();
     }
 }

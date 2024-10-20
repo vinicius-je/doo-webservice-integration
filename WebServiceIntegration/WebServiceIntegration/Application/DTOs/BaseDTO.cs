@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebServiceIntegration.Core.Entities
+namespace WebServiceIntegration.Application.DTOs
 {
-    public abstract class BaseEntity
+    public record BaseDTO
     {
-        public int Id { get; set; }
+        public int id { get; set; }
     }
 }

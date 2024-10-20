@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebServiceIntegration.Core.Entities
+namespace WebServiceIntegration.Domain.Entities
 {
     public class Matricula : BaseEntity
     {
         public int AlunoId { get; set; }
         public int DisciplinaId { get; set; }
 
-        public Matricula(int alunoId, int disciplinaId)
+        public Matricula(int id, int alunoId, int disciplinaId) : base(id)
         {
             AlunoId = alunoId;
             DisciplinaId = disciplinaId;
