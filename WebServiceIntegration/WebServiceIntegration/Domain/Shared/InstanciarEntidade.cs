@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using WebServiceIntegration.Application.DTOs;
+﻿using WebServiceIntegration.Application.DTOs;
 using WebServiceIntegration.Domain.Entities;
 
 namespace WebServiceIntegration.Domain.Shared
 {
     public static class EntidadeShared
     {
-        public static T InstanciarEntidade<T, R>(R dto) 
+        public static T InstanciarEntidade<T, R>(R dto)
             where T : BaseEntity, new()
             where R : BaseDTO
         {

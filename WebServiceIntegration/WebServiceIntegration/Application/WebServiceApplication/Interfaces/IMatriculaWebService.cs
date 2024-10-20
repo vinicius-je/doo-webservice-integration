@@ -2,8 +2,8 @@
 
 namespace WebServiceIntegration.Application.WebServiceApplication.Interfaces
 {
-    public interface IAlunoWebService
+    public interface IMatriculaWebService
     {
-        Task<ICollection<AlunoDTO>> GetAlunos();
+        Task<ICollection<MatriculaDTO>> GetMatriculas();
     }
 }

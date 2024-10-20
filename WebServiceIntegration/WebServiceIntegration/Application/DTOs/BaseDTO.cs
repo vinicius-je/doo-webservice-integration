@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebServiceIntegration.Application.DTOs
+﻿namespace WebServiceIntegration.Application.DTOs
 {
     public record BaseDTO
     {

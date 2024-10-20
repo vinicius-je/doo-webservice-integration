@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebServiceIntegration.Application.DTOs;
+﻿using WebServiceIntegration.Application.DTOs;
 using WebServiceIntegration.Application.Factory.Interfaces;
 using WebServiceIntegration.Domain.Entities;
 using WebServiceIntegration.Domain.Shared;

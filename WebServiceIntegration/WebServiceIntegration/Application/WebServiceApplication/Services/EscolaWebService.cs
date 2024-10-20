@@ -1,22 +1,23 @@
-﻿using Newtonsoft.Json;
-using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
-using WebServiceIntegration.Application.DTOs;
+﻿using WebServiceIntegration.Application.DTOs;
 using WebServiceIntegration.Application.WebServiceApplication.Interfaces;
 using WebServiceIntegration.Core.Application.Interfaces;
-using WebServiceIntegration.Domain.Entities;
 
 namespace WebServiceIntegration.Core.Application.Services
 {
-    public class EscolaWebService : IEscolaWebService<AlunoDTO, DisciplinaDTO, MatriculaDTO>  
+    public class EscolaWebService : IEscolaWebService<AlunoDTO, DisciplinaDTO, MatriculaDTO>
     {
         private readonly IAlunoWebService _alunosWebService;
         private readonly IDisciplinaWebService _disciplinasWebService;
+        private readonly IMatriculaWebService _matriculaWebService;
 
-        public EscolaWebService(IAlunoWebService alunosWebService, IDisciplinaWebService disciplinasWebService)
+        public EscolaWebService(
+            IAlunoWebService alunosWebService,
+            IDisciplinaWebService disciplinasWebService,
+            IMatriculaWebService matriculaWebService)
         {
             _alunosWebService = alunosWebService;
             _disciplinasWebService = disciplinasWebService;
+            _matriculaWebService = matriculaWebService;
         }
 
         public async Task<ICollection<AlunoDTO>> GetAlunos()
@@ -31,7 +32,7 @@ namespace WebServiceIntegration.Core.Application.Services
 
         public async Task<ICollection<MatriculaDTO>> GetMatriculas()
         {
-            return await Task.FromResult(new List<MatriculaDTO>());
+            return await _matriculaWebService.GetMatriculas();
         }
     }
 }

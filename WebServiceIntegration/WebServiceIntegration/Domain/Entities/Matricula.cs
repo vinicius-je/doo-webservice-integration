@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebServiceIntegration.Domain.Entities
+﻿namespace WebServiceIntegration.Domain.Entities
 {
+    [Serializable]
     public class Matricula : BaseEntity
     {
         public int AlunoId { get; set; }
         public int DisciplinaId { get; set; }
+
+        public Matricula() { }
 
         public Matricula(int id, int alunoId, int disciplinaId) : base(id)
         {

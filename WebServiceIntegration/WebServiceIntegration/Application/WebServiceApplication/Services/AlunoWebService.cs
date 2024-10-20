@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebServiceIntegration.Application.DTOs;
+﻿using WebServiceIntegration.Application.DTOs;
 using WebServiceIntegration.Application.WebServiceApplication.Interfaces;
 
 namespace WebServiceIntegration.Application.WebServiceApplication.Services
@@ -15,7 +10,7 @@ namespace WebServiceIntegration.Application.WebServiceApplication.Services
         public AlunoWebService(IWebService<AlunoDTO> webService)
         {
             _webService = webService;
-        } 
+        }
 
         public async Task<ICollection<AlunoDTO>> GetAlunos()
         {
