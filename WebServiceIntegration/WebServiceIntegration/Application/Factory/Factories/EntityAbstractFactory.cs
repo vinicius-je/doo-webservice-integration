@@ -5,13 +5,13 @@ using WebServiceIntegration.Domain.Shared;
 
 namespace WebServiceIntegration.Application.Factory.Factories
 {
-    public class EntityAbstractFactory<TRequest, TResponse> : IEntityAbstractFactory<TRequest, TResponse>
-        where TRequest : BaseDTO
-        where TResponse : BaseEntity, new()
+    public class EntityAbstractFactory<Dto, Entity> : IEntityAbstractFactory<Dto, Entity>
+        where Dto : BaseDTO
+        where Entity : BaseEntity, new()
     {
-        public TResponse CreateEntity(TRequest request)
+        public Entity CreateEntity(Dto request)
         {
-            return EntidadeShared.InstanciarEntidade<TResponse, TRequest>(request);
+            return new EntidadeShared().InstanciarEntidade<Entity, Dto>(request);
         }
     }
 }

@@ -3,10 +3,11 @@ using WebServiceIntegration.Domain.Entities;
 
 namespace WebServiceIntegration.Application.Factory.Interfaces
 {
-    public interface IEntityAbstractFactory<Request, Response>
-        where Request : BaseDTO
-        where Response : BaseEntity
+
+    public interface IEntityAbstractFactory<Dto, Entity>
+        where Dto : BaseDTO
+        where Entity : BaseEntity
     {
-        Response CreateEntity(Request request);
+        Entity CreateEntity(Dto request);
     }
 }

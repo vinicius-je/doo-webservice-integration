@@ -8,7 +8,7 @@ namespace WebServiceIntegration.Application.Shared
         where E : BaseEntity, new()
         where D : BaseDTO
     {
-        public static List<E> criarEntidadeViaFactory(ICollection<D> listaDTO)
+        public List<E> criarEntidadeViaFactory(ICollection<D> listaDTO)
         {
             List<E> lista = [];
             var entidadeFactory = new EntityAbstractFactory<D, E>();

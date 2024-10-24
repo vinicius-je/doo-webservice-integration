@@ -4,7 +4,7 @@ namespace WebServiceIntegration.Application.Shared
 {
     public class XmlHelper
     {
-        public static void GerarXml<T>(List<T> listaObjetos, string caminhoArquivo)
+        public void GerarXml<T>(List<T> listaObjetos, string caminhoArquivo)
         {
             // Criar um XmlSerializer para a lista do tipo T
             var serializer = new XmlSerializer(typeof(List<T>));

@@ -14,7 +14,12 @@ namespace WebServiceIntegration.Application.Integration
         {
             _escolaWebService = escolaWebService;
         }
-
+        /// <summary>
+        /// 1. Consome o WebService
+        /// 2. Converte as entidades
+        /// 3. Gera os XMLs
+        /// </summary>
+        /// <returns></returns>
         public async Task Process()
         {
             // Consumir websevice
@@ -22,14 +27,14 @@ namespace WebServiceIntegration.Application.Integration
             var disciplinasDTO = await _escolaWebService.GetDisciplinas();
             var matriculasDTO = await _escolaWebService.GetMatriculas();
             // Gerar entidades
-            List<Aluno> alunos = EntidadeHelper<Aluno, AlunoDTO>.criarEntidadeViaFactory(alunosDTO);
-            List<Disciplina> disciplinas = EntidadeHelper<Disciplina, DisciplinaDTO>.criarEntidadeViaFactory(disciplinasDTO);
-            List<Matricula> matriculas = EntidadeHelper<Matricula, MatriculaDTO>.criarEntidadeViaFactory(matriculasDTO);
+            List<Aluno> alunos = new EntidadeHelper<Aluno, AlunoDTO>().criarEntidadeViaFactory(alunosDTO);
+            List<Disciplina> disciplinas = new EntidadeHelper<Disciplina, DisciplinaDTO>().criarEntidadeViaFactory(disciplinasDTO);
+            List<Matricula> matriculas = new EntidadeHelper<Matricula, MatriculaDTO>().criarEntidadeViaFactory(matriculasDTO);
             // Gerar XMLs
-            XmlHelper.GerarXml<Aluno>(alunos, "./alunos.xml");
-            XmlHelper.GerarXml<Disciplina>(disciplinas, "./disciplinas.xml");
-            XmlHelper.GerarXml<Matricula>(matriculas, "./matriculas.xml");
-
+            var xml = new XmlHelper();
+            xml.GerarXml<Aluno>(alunos, "./alunos.xml");
+            xml.GerarXml<Disciplina>(disciplinas, "./disciplinas.xml");
+            xml.GerarXml<Matricula>(matriculas, "./matriculas.xml");
         }
     }
 }
